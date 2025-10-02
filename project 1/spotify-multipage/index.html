@@ -6,7 +6,12 @@
   <title>My Spotify Artists</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+
+  <div class="blobs" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
   <header>
     <div class="wrap">
       <h1>My Spotify Artists</h1>
@@ -138,5 +143,29 @@
     </a>
     </div>
   </main>
+
+<script>
+// ripple on pointerdown (so the animation shows even if page navigates)
+(function(){
+  function addRipple(e){
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const d = Math.max(rect.width, rect.height); // ripple size
+    const rip = document.createElement('span');
+    rip.className = 'ripple';
+    rip.style.left = x + 'px';
+    rip.style.top = y + 'px';
+    rip.style.width = rip.style.height = d + 'px';
+    card.appendChild(rip);
+    rip.addEventListener('animationend', () => rip.remove());
+  }
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('pointerdown', addRipple);
+  });
+})();
+</script>
+
 </body>
 </html>
