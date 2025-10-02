@@ -1,13 +1,19 @@
-/* styles.css — super simple, beginner friendly */
+/* ================================
+   Spotify-inspired, beginner-friendly CSS
+   Paste this into styles.css
+   ================================ */
+
+/* THEME (easy to tweak) */
 :root{
-  --bg:#000000;
-  --fg:#ffffff;
-  --muted:#78d389;
-  --line:#ffffff;
-  --card:#010000;
-  --accent:#6eda92;
+  --bg:#0b0b0b;      /* near-black page background */
+  --fg:#eaeaea;      /* main text (light grey) */
+  --muted:#9aa0a6;   /* secondary text */
+  --line:#222;       /* borders/dividers */
+  --card:#121212;    /* card background (Spotify dark) */
+  --accent:#1DB954;  /* Spotify green */
 }
 
+/* Base */
 *{ box-sizing:border-box }
 html,body{ height:100% }
 body{
@@ -22,12 +28,35 @@ a{ color:var(--fg); text-decoration:none }
 a:hover{ text-decoration:underline }
 
 .wrap{ max-width:1100px; margin:auto; padding:16px }
-header{ border-bottom: 2px solid var(--accent); background:#0e240d }
-h1{ margin:.2em 0; font-size:clamp(1.6rem,4vw,2.4rem) }
+
+/* Header + headline */
+header{
+  background: transparent;
+  border-bottom: 2px solid var(--accent);
+}
+h1{
+  margin:.2em 0;
+  font-size:clamp(1.6rem,4vw,2.4rem);
+  /* subtle animated gradient text */
+  color:transparent;
+  background: linear-gradient(90deg, #eaeaea, #1DB954, #a0e1bf);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: headline-shine 5s ease-in-out infinite alternate;
+}
+@keyframes headline-shine{
+  0%{ background-position: 0% 50% }
+  100%{ background-position: 100% 50% }
+}
+@media (prefers-reduced-motion: reduce){
+  h1{ animation:none }
+}
+
 p,ul{ margin:.4em 0 1em }
 small, .muted{ color:var(--muted) }
 
-/* Index grid */
+/* Index grid of artist cards */
 .grid{
   display:grid;
   grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
@@ -40,42 +69,64 @@ small, .muted{ color:var(--muted) }
   border-radius:12px;
   overflow:hidden;
   display:block;
+  position: relative;                 /* needed for ripple */
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
 }
+.card:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.25) }
+.card:active{ transform: scale(.98) }
+.card:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px }
+
 .card img{
   width:100%;
   height:180px;
   object-fit:cover;
-  background:#ddd; /* shows if image missing */
+  background:#303030; /* shows if image missing */
 }
 .card .pad{ padding:12px }
 .card h3{ margin:.2em 0 .2em; font-size:1.1rem }
 .stats{ display:flex; gap:12px; font-size:.9rem; color:var(--muted) }
 .badge{
   display:inline-block; padding:2px 8px; border-radius:999px;
-  border:1px solid var(--line); font-size:.8rem; color:var(--muted);
+  border:1px solid #333; font-size:.8rem; color:#c7c7c7;
 }
 
-/* Artist page */
-.back{ display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .9rem; border-radius:999px; border:1px solid var(--accent); background:linear-gradient(180deg, rgba(29,185,84,0.18), rgba(29,185,84,0.08)); transition: transform .12s ease, box-shadow .12s ease, background .2s ease;  display:inline-block; margin:12px 0; }
+/* Artist page pieces */
+.back{
+  display:inline-flex; align-items:center; gap:.5rem;
+  margin:12px 0; padding:.5rem .9rem;
+  border-radius:999px;
+  border:1px solid var(--accent);
+  background:linear-gradient(180deg, rgba(29,185,84,0.18), rgba(29,185,84,0.08));
+  transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
+}
+.back:hover{ transform: translateY(-1px); box-shadow: 0 6px 16px rgba(29,185,84,0.15) }
+.back:active{ transform: translateY(0) scale(.98) }
+
 .hero{
   display:grid; gap:16px;
   grid-template-columns: 1fr;
 }
 .hero img{
-  width:100%; height:320px; object-fit:cover; border-radius:12px; border:1px solid var(--line);
+  width:100%; height:320px; object-fit:cover;
+  border-radius:12px; border:1px solid var(--line);
 }
-@media (min-width: 800px){
+@media (min-width:800px){
   .hero{ grid-template-columns: 360px 1fr }
   .hero img{ height:360px }
 }
-.info{ background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px }
+.info{
+  background:var(--card); border:1px solid var(--line);
+  border-radius:12px; padding:12px
+}
 .list a{ color:var(--accent) }
+.list a:hover{ text-decoration:underline }
 
-/* Animated Spotify-like background */
+/* Background effect — subtle animated gradients (no JS) */
 body{
   background:
-    radial-gradient(1200px 800px at 10% 0%, rgba(29,185,84,0.12), transparent 30%),
-    radial-gradient(1000px 700px at 90% 100%, rgba(29,185,84,0.10), transparent 10%),
+    radial-gradient(1200px 800px at 10% 0%, rgba(29,185,84,0.10), transparent 60%),
+    radial-gradient(1000px 700px at 90% 100%, rgba(29,185,84,0.08), transparent 60%),
     linear-gradient(180deg, #000, #0b0b0b 40%, #000);
   background-attachment: fixed;
   animation: bg-move 16s ease-in-out infinite alternate;
@@ -85,96 +136,55 @@ body{
   100%{ background-position: 15% 5%, 85% 90%, 0% 20% }
 }
 @media (prefers-reduced-motion: reduce){
-  body{ animation: none }
+  body{ animation:none }
 }
-header, main { position: relative; z-index: 1; }
 
-/* Floating green blobs */
-.blobs {
+/* Optional soft green "blobs" layer (add the <div class="blobs">…</div> in HTML) */
+.blobs{
   position: fixed; inset: 0;
   z-index: 0; pointer-events: none; overflow: hidden;
-  filter: blur(24px); opacity: .55;
+  filter: blur(24px); opacity:.40;
 }
-.blob {
-  position: absolute; width: 280px; height: 280px;
+.blob{
+  position:absolute; width:280px; height:280px;
   background: radial-gradient(circle at 30% 30%, #1DB954, #0d6a33);
-  border-radius: 50%; mix-blend-mode: screen;
+  border-radius:50%; mix-blend-mode:screen;
   animation: float 22s ease-in-out infinite;
 }
-.blob.b1 { left: -80px; top: 10%; animation-delay: 0s }
-.blob.b2 { right: -60px; top: 60%; animation-delay: 4s }
-.blob.b3 { left: 40%; top: -100px; animation-delay: 8s }
-@keyframes float {
-  0%   { transform: translate(0,0) scale(1) rotate(0deg) }
-  50%  { transform: translate(40px, -30px) scale(1.1) rotate(20deg) }
-  100% { transform: translate(0,0) scale(1) rotate(0deg) }
+.blob.b1{ left:-80px; top:10%; animation-delay:0s }
+.blob.b2{ right:-60px; top:60%; animation-delay:4s }
+.blob.b3{ left:40%; top:-100px; animation-delay:8s }
+@keyframes float{
+  0%{ transform: translate(0,0) scale(1) rotate(0deg) }
+  50%{ transform: translate(40px,-30px) scale(1.1) rotate(20deg) }
+  100%{ transform: translate(0,0) scale(1) rotate(0deg) }
 }
 @media (prefers-reduced-motion: reduce){
-  .blob{ animation: none }
+  .blob{ animation:none }
 }
 
-/* Headline gradient text */
-h1{
-  color:transparent;
-  background: linear-gradient(90deg, #ffffff, #1DB954, #bff4d4);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: headline-shine 6s ease-in-out infinite alternate;
-}
-@keyframes headline-shine{
-  0%{ background-position: 0% 50% }
-  100%{ background-position: 100% 50% }
-}
-@media (prefers-reduced-motion: reduce){
-  h1{ animation: none }
-}
-
-/* Interactive spotlight glow following the cursor */
-.spotlight {
+/* Optional spotlight (mouse-follow). Requires <div id="spotlight" class="spotlight"></div> + tiny JS */
+.spotlight{
   position: fixed; inset: 0;
-  z-index: 0;
-  pointer-events: none;
+  z-index: 0; pointer-events:none;
   background: radial-gradient(220px 220px at var(--x,50%) var(--y,50%),
-              rgba(29,185,84,0.18), rgba(29,185,84,0) 60%);
-  transition: background 240ms linear;
+              rgba(29,185,84,0.16), rgba(29,185,84,0) 60%);
+  transition: background 160ms linear;
 }
-/* Keep main content above background effects */
-header, main { position: relative; z-index: 1; }
+/* Keep content above effects */
+header, main{ position:relative; z-index:1 }
 
-
-/* --- Card interactions + ripple --- */
-.card{
-  position: relative;            /* needed for ripple positioning */
-  cursor: pointer;
-  transition: transform .12s ease, box-shadow .12s ease;
-}
-.card:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0,0,0,.25);
-}
-.card:active{
-  transform: scale(.98);
-}
-.card:focus-visible{
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-/* ripple element */
+/* Press feedback — ripple on cards (pair with small JS snippet) */
 .card .ripple{
-  position: absolute;
-  border-radius: 50%;
+  position:absolute;
+  border-radius:50%;
   transform: translate(-50%, -50%) scale(0);
   background: rgba(29,185,84,0.35);
-  pointer-events: none;
-  opacity: .8;
+  pointer-events:none;
+  opacity:.8;
+  mix-blend-mode:screen;
   animation: ripple-burst .6s ease-out forwards;
-  mix-blend-mode: screen; /* glow nicely on dark bg */
 }
 @keyframes ripple-burst{
-  100%{
-    transform: translate(-50%, -50%) scale(6);
-    opacity: 0;
-  }
+  100%{ transform: translate(-50%, -50%) scale(6); opacity:0 }
 }

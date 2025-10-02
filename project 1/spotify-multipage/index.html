@@ -6,166 +6,196 @@
   <title>My Spotify Artists</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+<body>
 
+  <!-- Optional mouse-follow glow (matches .spotlight in CSS) -->
+  <div class="spotlight" id="spotlight"></div>
+
+  <!-- Soft green blobs background (matches .blobs/.blob in CSS) -->
   <div class="blobs" aria-hidden="true">
     <div class="blob b1"></div>
     <div class="blob b2"></div>
     <div class="blob b3"></div>
   </div>
+
   <header>
     <div class="wrap">
       <h1>My Spotify Artists</h1>
-      <p class="muted">My spotify playlist data </p>
+      <p class="muted">By Pongsant Chintanapakdee</p>
     </div>
   </header>
 
   <main class="wrap">
     <div class="grid">
+
       <a class="card" href="artists/justin-bieber.html">
-      <img src="img/justin_bieber.jpeg" alt="Justin Bieber" onerror="this.onerror=null;this.src='img/placeholder.svg'">
-      <div class="pad">
-        <h3>Justin Bieber</h3>
-        <div class="stats">
-          <span class="badge">12h 30m</span>
-          <span class="badge">46 tracks</span>
+        <img src="img/justin_bieber.jpeg" alt="Justin Bieber" onerror="this.onerror=null;this.src='img/placeholder.svg'">
+        <div class="pad">
+          <h3>Justin Bieber</h3>
+          <div class="stats">
+            <span class="badge">12h 30m</span>
+            <span class="badge">46 tracks</span>
+          </div>
         </div>
-      </div>
-    </a><a class="card" href="artists/frank-ocean.html">
-      <img src="img/frank ocean.jpg.webp" alt="Frank Ocean" onerror="this.onerror=null;this.src='img/placeholder.svg'">
-      <div class="pad">
-        <h3>Frank Ocean</h3>
-        <div class="stats">
-          <span class="badge">9h 10m</span>
-          <span class="badge">28 tracks</span>
+      </a>
+
+      <a class="card" href="artists/frank-ocean.html">
+        <img src="img/frank ocean.jpg.webp" alt="Frank Ocean" onerror="this.onerror=null;this.src='img/placeholder.svg'">
+        <div class="pad">
+          <h3>Frank Ocean</h3>
+          <div class="stats">
+            <span class="badge">9h 10m</span>
+            <span class="badge">28 tracks</span>
+          </div>
         </div>
-        
-      </div>
-    </a><a class="card" href="artists/playboi-carti.html">
-      <img src="img/playboi-carti.jpeg" alt="Playboi Carti" onerror="this.onerror=null;this.src='img/placeholder.svg'">
-      <div class="pad">
-        <h3>Playboi Carti</h3>
-        <div class="stats">
-          <span class="badge">6h 22m</span>
-          <span class="badge">24 tracks</span>
+      </a>
+
+      <a class="card" href="artists/playboi-carti.html">
+        <img src="img/playboi-carti.jpeg" alt="Playboi Carti" onerror="this.onerror=null;this.src='img/placeholder.svg'">
+        <div class="pad">
+          <h3>Playboi Carti</h3>
+          <div class="stats">
+            <span class="badge">6h 22m</span>
+            <span class="badge">24 tracks</span>
+          </div>
         </div>
-        
-      </div>
-    </a><a class="card" href="artists/travis-scott.html">
-      <img src="img/travis-scott.jpg.webp" alt="Travis Scott" onerror="this.onerror=null;this.src='img/placeholder.svg'">
-      <div class="pad">
-        <h3>Travis Scott</h3>
-        <div class="stats">
-          <span class="badge">10h 05m</span>
-          <span class="badge">35 tracks</span>
+      </a>
+
+      <a class="card" href="artists/travis-scott.html">
+        <img src="img/travis-scott.jpg.webp" alt="Travis Scott" onerror="this.onerror=null;this.src='img/placeholder.svg'">
+        <div class="pad">
+          <h3>Travis Scott</h3>
+          <div class="stats">
+            <span class="badge">10h 05m</span>
+            <span class="badge">35 tracks</span>
+          </div>
         </div>
-      
-      </div>
-    </a><a class="card" href="artists/tyler-the-creator.html">
-      <img src="img/tyler-the-creator.jpg.webp" alt="Tyler, the Creator" onerror="this.onerror=null;this.src='img/placeholder.svg'">
-      <div class="pad">
-        <h3>Tyler, the Creator</h3>
-        <div class="stats">
-          <span class="badge">7h 40m</span>
-          <span class="badge">31 tracks</span>
+      </a>
+
+      <a class="card" href="artists/tyler-the-creator.html">
+        <img src="img/tyler-the-creator.jpg.webp" alt="Tyler, the Creator" onerror="this.onerror=null;this.src='img/placeholder.svg'">
+        <div class="pad">
+          <h3>Tyler, the Creator</h3>
+          <div class="stats">
+            <span class="badge">7h 40m</span>
+            <span class="badge">31 tracks</span>
+          </div>
         </div>
-       
-      </div>
-    </a><a class="card" href="artists/drake.html">
-      <img src="img/drake.jpg" alt="Drake" onerror="this.onerror=null;this.src='img/placeholder.svg'">
-      <div class="pad">
-        <h3>Drake</h3>
-        <div class="stats">
-          <span class="badge">8h 15m</span>
-          <span class="badge">42 tracks</span>
+      </a>
+
+      <a class="card" href="artists/drake.html">
+        <img src="img/drake.jpg" alt="Drake" onerror="this.onerror=null;this.src='img/placeholder.svg'">
+        <div class="pad">
+          <h3>Drake</h3>
+          <div class="stats">
+            <span class="badge">8h 15m</span>
+            <span class="badge">42 tracks</span>
+          </div>
         </div>
-       
-      </div>
-    </a><a class="card" href="artists/gavin-d.html">
-      <img src="img/gavin-d.jpeg" alt="Gavin D" onerror="this.onerror=null;this.src='img/placeholder.svg'">
-      <div class="pad">
-        <h3>Gavin D</h3>
-        <div class="stats">
-          <span class="badge">3h 12m</span>
-          <span class="badge">12 tracks</span>
+      </a>
+
+      <a class="card" href="artists/gavin-d.html">
+        <img src="img/gavin-d.jpeg" alt="Gavin D" onerror="this.onerror=null;this.src='img/placeholder.svg'">
+        <div class="pad">
+          <h3>Gavin D</h3>
+          <div class="stats">
+            <span class="badge">3h 12m</span>
+            <span class="badge">12 tracks</span>
+          </div>
         </div>
-        
-      </div>
-    </a><a class="card" href="artists/the-weeknd.html">
-      <img src="img/the-weeknd.jpg" alt="The Weeknd" onerror="this.onerror=null;this.src='img/placeholder.svg'">
-      <div class="pad">
-        <h3>The Weeknd</h3>
-        <div class="stats">
-          <span class="badge">11h 48m</span>
-          <span class="badge">38 tracks</span>
+      </a>
+
+      <a class="card" href="artists/the-weeknd.html">
+        <img src="img/the-weeknd.jpg" alt="The Weeknd" onerror="this.onerror=null;this.src='img/placeholder.svg'">
+        <div class="pad">
+          <h3>The Weeknd</h3>
+          <div class="stats">
+            <span class="badge">11h 48m</span>
+            <span class="badge">38 tracks</span>
+          </div>
         </div>
-        
-      </div>
-    </a><a class="card" href="artists/youngohm.html">
-      <img src="img/youngohm.jpg" alt="YOUNGOHM" onerror="this.onerror=null;this.src='img/placeholder.svg'">
-      <div class="pad">
-        <h3>YOUNGOHM</h3>
-        <div class="stats">
-          <span class="badge">4h 27m</span>
-          <span class="badge">18 tracks</span>
+      </a>
+
+      <a class="card" href="artists/youngohm.html">
+        <img src="img/youngohm.jpg" alt="YOUNGOHM" onerror="this.onerror=null;this.src='img/placeholder.svg'">
+        <div class="pad">
+          <h3>YOUNGOHM</h3>
+          <div class="stats">
+            <span class="badge">4h 27m</span>
+            <span class="badge">18 tracks</span>
+          </div>
         </div>
-        
-      </div>
-    </a><a class="card" href="artists/the-marias.html">
-      <img src="img/the-marias.jpg" alt="The Marías" onerror="this.onerror=null;this.src='img/placeholder.svg'">
-      <div class="pad">
-        <h3>The Marías</h3>
-        <div class="stats">
-          <span class="badge">5h 20m</span>
-          <span class="badge">20 tracks</span>
+      </a>
+
+      <a class="card" href="artists/the-marias.html">
+        <img src="img/the-marias.jpg" alt="The Marías" onerror="this.onerror=null;this.src='img/placeholder.svg'">
+        <div class="pad">
+          <h3>The Marías</h3>
+          <div class="stats">
+            <span class="badge">5h 20m</span>
+            <span class="badge">20 tracks</span>
+          </div>
         </div>
-        
-      </div>
-    </a><a class="card" href="artists/saran.html">
-      <img src="img/saran.jpg" alt="SARAN" onerror="this.onerror=null;this.src='img/placeholder.svg'">
-      <div class="pad">
-        <h3>SARAN</h3>
-        <div class="stats">
-          <span class="badge">2h 55m</span>
-          <span class="badge">10 tracks</span>
+      </a>
+
+      <a class="card" href="artists/saran.html">
+        <img src="img/saran.jpg" alt="SARAN" onerror="this.onerror=null;this.src='img/placeholder.svg'">
+        <div class="pad">
+          <h3>SARAN</h3>
+          <div class="stats">
+            <span class="badge">2h 55m</span>
+            <span class="badge">10 tracks</span>
+          </div>
         </div>
-       
-      </div>
-    </a><a class="card" href="artists/three-man-down.html">
-      <img src="img/three-man-down.jpeg" alt="Three Man Down" onerror="this.onerror=null;this.src='img/placeholder.svg'">
-      <div class="pad">
-        <h3>Three Man Down</h3>
-        <div class="stats">
-          <span class="badge">3h 44m</span>
-          <span class="badge">14 tracks</span>
+      </a>
+
+      <a class="card" href="artists/three-man-down.html">
+        <img src="img/three-man-down.jpeg" alt="Three Man Down" onerror="this.onerror=null;this.src='img/placeholder.svg'">
+        <div class="pad">
+          <h3>Three Man Down</h3>
+          <div class="stats">
+            <span class="badge">3h 44m</span>
+            <span class="badge">14 tracks</span>
+          </div>
         </div>
-       
-      </div>
-    </a>
+      </a>
+
     </div>
   </main>
 
-<script>
-// ripple on pointerdown (so the animation shows even if page navigates)
-(function(){
-  function addRipple(e){
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const d = Math.max(rect.width, rect.height); // ripple size
-    const rip = document.createElement('span');
-    rip.className = 'ripple';
-    rip.style.left = x + 'px';
-    rip.style.top = y + 'px';
-    rip.style.width = rip.style.height = d + 'px';
-    card.appendChild(rip);
-    rip.addEventListener('animationend', () => rip.remove());
-  }
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('pointerdown', addRipple);
-  });
-})();
-</script>
+  <!-- Optional spotlight script (for the mouse-follow glow) -->
+  <script>
+    const spot = document.getElementById('spotlight');
+    if (spot){
+      window.addEventListener('mousemove', (e) => {
+        spot.style.setProperty('--x', (e.clientX / innerWidth) * 100 + '%');
+        spot.style.setProperty('--y', (e.clientY / innerHeight) * 100 + '%');
+      });
+    }
+  </script>
+
+  <!-- Ripple on card click (already matches your CSS) -->
+  <script>
+  (function(){
+    function addRipple(e){
+      const card = e.currentTarget;
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const d = Math.max(rect.width, rect.height);
+      const rip = document.createElement('span');
+      rip.className = 'ripple';
+      rip.style.left = x + 'px';
+      rip.style.top = y + 'px';
+      rip.style.width = rip.style.height = d + 'px';
+      card.appendChild(rip);
+      rip.addEventListener('animationend', () => rip.remove());
+    }
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('pointerdown', addRipple);
+    });
+  })();
+  </script>
 
 </body>
 </html>
