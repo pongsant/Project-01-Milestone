@@ -1,10 +1,10 @@
 :root{
-  --bg:#0b0b0b;      /* near-black page background */
-  --fg:#eaeaea;      /* main text (light grey) */
-  --muted:#9aa0a6;   /* secondary text */
-  --line:#222;       /* borders/dividers */
-  --card:#121212;    /* card background (Spotify dark) */
-  --accent:#1DB954;  /* Spotify green */
+  --bg:#0b0b0b;      
+  --fg:#eaeaea;     
+  --muted:#9aa0a6;   
+  --line:#222;       
+  --card:#121212;    
+  --accent:#1DB954;  
 }
 
 /* Base */
